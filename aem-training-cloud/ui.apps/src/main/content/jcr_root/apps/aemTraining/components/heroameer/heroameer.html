@@ -1,0 +1,50 @@
+<style>
+    body {
+        font-family: Calibri;
+    }
+    .hero {
+        background: #ccc;
+        padding: 60px 30px;
+        color: white;
+        text-align: center;
+        border-radius: 10px;
+        margin: 20px 0;
+        color: #333;
+    }
+    .hero-content {width:50%;}
+
+    .hero-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    .hero-cta-button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 24px;
+        font-size: 1rem;
+        color: #fff;
+        background-color: #0073e6;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        cursor: pointer;
+    }
+
+    .hero-cta-button:hover {
+        background-color: #005bb5`;
+    }
+</style>
+<div class="hero" style="background-image: url('${hero.backgroundImage @ context='uri'}');" data-sly-use.hero="com.adobe.aem.training.core.models.HeroAmeerModel">
+    <div class="hero-content">
+        <h1 class="hero-title">${hero.title}</h1>
+        <p class="hero-description">${hero.description}</p>
+        <a href="${hero.ctaLink}" class="hero-cta-button">${hero.ctaLabel}</a>
+    </div>
+</div>
