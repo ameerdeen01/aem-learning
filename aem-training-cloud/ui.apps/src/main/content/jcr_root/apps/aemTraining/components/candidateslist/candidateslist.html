@@ -1,0 +1,85 @@
+
+<style>
+    .candidate-list {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+   .candidate-list h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 2rem;
+        color: #333;
+    }
+    .candidates {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+    .candidate {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        width: 280px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease;
+    }
+    .candidate:hover {
+        transform: translateY(-5px);
+    }
+    .candidate h3 {
+        margin-top: 0;
+        color: #2c3e50;
+        font-size: 1.3rem;
+    }
+    .candidate img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+        margin-bottom: 15px;
+    }
+    .tech-stack {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    .tech-stack li {
+        background-color: #eef2f7;
+        color: #2c3e50;
+        margin-bottom: 6px;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+   .candidate img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-bottom: 15px;
+        display: block;
+}
+</style>
+
+<div class="candidate-list" data-sly-use.candidateslist="com.adobe.aem.training.core.models.CandidatesListModel"
+     data-sly-test.candidateslist="${candidateslist}">
+    <h2>${candidateslist.heading}</h2>
+
+    <div class="candidates" data-sly-list.candidate="${candidateslist.candidates}">
+        <div class="candidate">
+            <h3>${candidate.name}</h3>
+
+            <sly data-sly-test.hasImage="${candidate.image}">
+                <img src="${hasImage}" alt="${candidate.name}" />
+            </sly>
+
+            <ul class="tech-stack" data-sly-list.technologies="${candidate.technologies}">
+                <li>${technologies.tech}</li>
+            </ul>
+        </div>
+    </div>
+</div>
